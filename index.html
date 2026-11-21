@@ -1,0 +1,2040 @@
+<!DOCTYPE html>
+<html lang="pl" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAYRb1tchX | Official Artist Portal & Web Store</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Plus Jakarta Sans, Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        liquid: {
+                            bg: '#060609',
+                            card: 'rgba(18, 18, 28, 0.52)',
+                            border: 'rgba(255, 255, 255, 0.09)',
+                            purple: '#9d4edd',
+                            neon: '#c77dff',
+                            cyan: '#06b6d4',
+                            emerald: '#10b981',
+                            pink: '#ec4899',
+                        }
+                    },
+                    animation: {
+                        'blob-slow': 'blob 14s infinite ease-in-out',
+                        'blob-reverse': 'blob-reverse 18s infinite ease-in-out',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(50px, -70px) scale(1.15)' },
+                            '66%': { transform: 'translate(-30px, 40px) scale(0.9)' },
+                        },
+                        'blob-reverse': {
+                            '0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(-60px, 60px) scale(1.1)' },
+                            '66%': { transform: 'translate(40px, -50px) scale(0.95)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #060609;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Fluid Liquid Glass Styling */
+        .glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.015) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+        }
+
+        .glass-card-glow {
+            background: linear-gradient(135deg, rgba(28, 20, 44, 0.68) 0%, rgba(14, 14, 22, 0.72) 100%);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(199, 125, 255, 0.28);
+            box-shadow: 0 0 35px rgba(157, 78, 221, 0.16), inset 0 0 20px rgba(255, 255, 255, 0.03);
+        }
+
+        .glass-card-hover {
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-5px);
+            border-color: rgba(199, 125, 255, 0.45);
+            box-shadow: 0 20px 40px 0 rgba(157, 78, 221, 0.18), inset 0 0 15px rgba(255, 255, 255, 0.05);
+        }
+
+        .glass-nav {
+            background: rgba(6, 6, 9, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-button {
+            background: rgba(157, 78, 221, 0.18);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(199, 125, 255, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-button:hover:not(:disabled) {
+            background: rgba(199, 125, 255, 0.32);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 22px rgba(199, 125, 255, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Neon Glow Text */
+        .text-glow-cyan {
+            text-shadow: 0 0 14px rgba(6, 182, 212, 0.55);
+        }
+
+        /* Visualizer Wave Animation */
+        .bar {
+            width: 4px;
+            background: linear-gradient(180deg, #10b981 0%, #06b6d4 50%, #9d4edd 100%);
+            border-radius: 4px;
+            height: 6px;
+            transition: height 0.15s ease;
+        }
+        
+        .playing .bar {
+            animation: soundWave 1.1s ease-in-out infinite alternate;
+        }
+
+        .playing .bar:nth-child(1) { animation-delay: 0.1s; }
+        .playing .bar:nth-child(2) { animation-delay: 0.4s; }
+        .playing .bar:nth-child(3) { animation-delay: 0.2s; }
+        .playing .bar:nth-child(4) { animation-delay: 0.5s; }
+        .playing .bar:nth-child(5) { animation-delay: 0.3s; }
+
+        @keyframes soundWave {
+            0% { height: 6px; }
+            100% { height: 28px; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #060609;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(157, 78, 221, 0.6);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-purple-600 selection:text-white">
+
+    <!-- LIQUID GLOW BACKGROUND BLOBS -->
+    <div id="ambientBlobs" class="fixed inset-0 overflow-hidden pointer-events-none z-0 transition-opacity duration-700">
+        <div class="absolute -top-40 -left-40 w-[520px] h-[520px] bg-purple-600/25 rounded-full blur-[130px] animate-blob-slow"></div>
+        <div class="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-cyan-500/20 rounded-full blur-[140px] animate-blob-reverse"></div>
+        <div class="absolute bottom-1/4 left-1/4 w-[500px] h-[500px] bg-emerald-500/15 rounded-full blur-[130px] animate-blob-slow"></div>
+        <div class="absolute -bottom-40 right-1/4 w-[550px] h-[550px] bg-pink-600/15 rounded-full blur-[140px] animate-blob-reverse"></div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative z-10 flex flex-col min-h-screen pb-24">
+
+        <!-- 1. TOP ANNOUNCEMENT BAR -->
+        <div class="bg-gradient-to-r from-purple-950/90 via-purple-800/50 to-emerald-950/90 text-[11px] sm:text-xs py-2 px-4 text-center border-b border-white/10 font-mono relative z-50 backdrop-blur-md">
+            <span class="inline-block animate-pulse text-emerald-400 font-bold mr-2">● OFICJALNY PRE-ORDER ALBUMU "WANNA FXCK"</span> 
+            <span class="text-gray-200">— ZAMÓW DOSTAWĘ PREMIEROWĄ + AUTOGRAF & LIMITOWANE DODATKI</span>
+        </div>
+
+        <!-- 2. STICKY LIQUID GLASS NAVIGATION -->
+        <header class="sticky top-0 left-0 right-0 z-40 glass-nav transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between gap-2">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group shrink-0">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-cyan-500 to-emerald-400 p-[2px] transition-transform duration-300 group-hover:scale-105 shadow-lg shadow-purple-500/20">
+                        <div class="w-full h-full bg-[#060609] rounded-[10px] flex items-center justify-center font-black text-lg tracking-tighter text-white">
+                            93
+                        </div>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-lg sm:text-xl font-extrabold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-cyan-400 group-hover:opacity-90 transition-opacity">
+                            NAYRb1tchX
+                        </span>
+                        <span class="text-[9px] font-mono tracking-widest text-emerald-400 uppercase hidden sm:inline">Official Portal & Store</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Items -->
+                <nav class="hidden xl:flex items-center space-x-6 text-xs font-semibold text-gray-300">
+                    <a href="#preorder" class="text-purple-300 hover:text-white transition-colors font-bold">PRE-ORDER "WANNA FXCK"</a>
+                    <a href="#catalog" class="hover:text-emerald-400 transition-colors">Sklep & Merch</a>
+                    <a href="#about" class="hover:text-cyan-400 transition-colors">O Mnie</a>
+                    <a href="#achievements" class="hover:text-cyan-400 transition-colors">Dorobek</a>
+                    <a href="#discography" class="hover:text-cyan-400 transition-colors">Dyskografia</a>
+                    <a href="#studio" class="hover:text-cyan-400 transition-colors">Studio</a>
+                    <a href="#booking" class="hover:text-cyan-400 transition-colors">Booking</a>
+                    <a href="#contact" class="hover:text-cyan-400 transition-colors">Kontakt</a>
+                </nav>
+
+                <!-- Right Controls: Atmosphere + Cart + Mobile Toggle -->
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Atmosphere Toggle -->
+                    <button id="ambientAudioBtn" onclick="toggleAudioAtmosphere()" title="Przełącz efekty świetlne tła" class="hidden md:flex items-center gap-2 px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-[11px] text-gray-300 hover:text-white hover:border-purple-500/40 transition-all">
+                        <span id="audioPulseDot" class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span id="audioStatusText" class="font-mono">ATMOSPHERE: ON</span>
+                    </button>
+
+                    <!-- Cart Button -->
+                    <button onclick="toggleCartModal()" class="relative glass-button px-3.5 sm:px-4 py-2.5 rounded-xl flex items-center gap-2 text-white font-bold text-xs shadow-lg shadow-purple-900/20">
+                        <i class="fas fa-shopping-bag text-cyan-400 text-sm"></i>
+                        <span class="hidden sm:inline">KOSZYK</span>
+                        <span id="cartCountBadge" class="bg-gradient-to-r from-purple-600 to-emerald-500 text-white text-[11px] px-2 py-0.5 rounded-full font-mono font-bold">0</span>
+                    </button>
+
+                    <!-- Mobile menu button -->
+                    <button id="mobileMenuBtn" aria-label="Menu" class="xl:hidden text-gray-300 hover:text-white focus:outline-none text-lg p-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Nav Menu -->
+            <div id="mobileMenu" class="hidden xl:hidden glass-card mx-4 mb-4 rounded-2xl p-5 flex-col space-y-3 text-center border border-purple-500/30">
+                <a href="#preorder" class="mobile-link text-purple-300 font-bold hover:text-white py-1.5 text-sm">PRE-ORDER "WANNA FXCK"</a>
+                <a href="#catalog" class="mobile-link text-emerald-300 font-semibold hover:text-white py-1.5 text-sm">Oficjalny Sklep & Merch</a>
+                <a href="#about" class="mobile-link text-gray-300 hover:text-white py-1.5 text-sm">O Mnie</a>
+                <a href="#achievements" class="mobile-link text-gray-300 hover:text-white py-1.5 text-sm">Dorobek Artystyczny</a>
+                <a href="#discography" class="mobile-link text-gray-300 hover:text-white py-1.5 text-sm">Dyskografia</a>
+                <a href="#studio" class="mobile-link text-gray-300 hover:text-white py-1.5 text-sm">Studio & Sound</a>
+                <a href="#booking" class="mobile-link text-gray-300 hover:text-white py-1.5 text-sm">Zamów Koncert</a>
+                <a href="#contact" class="mobile-link text-gray-300 hover:text-white py-1.5 text-sm">Kontakt</a>
+            </div>
+        </header>
+
+        <!-- 3. HERO SECTION -->
+        <section class="pt-16 pb-16 md:pt-24 md:pb-24 px-4 sm:px-6">
+            <div class="max-w-5xl mx-auto text-center relative">
+                
+                <!-- Spotify Badge -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-emerald-500/30 mb-8 animate-float">
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span class="text-xs font-semibold tracking-wide text-gray-200">
+                        800+ Miesięcznych Słuchaczy na Spotify
+                    </span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight mb-6 uppercase">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-white via-purple-200 to-cyan-300">
+                        NAYRb1tchX
+                    </span>
+                </h1>
+
+                <!-- Tagline -->
+                <p class="text-lg sm:text-2xl font-light text-cyan-300 mb-8 max-w-3xl mx-auto tracking-wide text-glow-cyan">
+                    Music Producer <span class="text-purple-400">•</span> Singer-Songwriter <span class="text-emerald-400">•</span> Audio Engineer
+                </p>
+
+                <!-- Description Snippet -->
+                <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Łączę kinową atmosferę, ciężki bas i bezkompromisowe emocje. Od wyrazistego tuningu wokali po wielowarstwowe kompozycje hybrydowe. Odkryj oficjalny sklep i zamów limitowany album <strong class="text-purple-300">"WANNA FXCK"</strong>.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#preorder" class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-bold text-sm tracking-wide shadow-lg shadow-purple-500/30 transition-all transform hover:scale-105 flex items-center justify-center gap-2.5">
+                        <i class="fas fa-shopping-bag"></i> Zamów Pre-order "WANNA FXCK"
+                    </a>
+                    <a href="#discography" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-white/10 text-white font-bold text-sm tracking-wide border border-white/15 transition-all transform hover:scale-105 flex items-center justify-center gap-2.5">
+                        <i class="fas fa-play text-emerald-400"></i> Posłuchaj Dyskografii
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. FLAGSHIP PRE-ORDER SECTION: ALBUM "WANNA FXCK" -->
+        <section id="preorder" class="py-12 px-4 sm:px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="glass-card-glow rounded-3xl p-6 sm:p-10 lg:p-12 border border-purple-500/35 overflow-hidden relative">
+                    
+                    <!-- Background Accent Glow -->
+                    <div class="absolute -top-24 -right-24 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+                        
+                        <!-- Left Column: Album Cover Display & Preview Controls -->
+                        <div class="lg:col-span-5 flex flex-col items-center">
+                            <div class="relative group w-full max-w-sm aspect-square rounded-3xl overflow-hidden shadow-2xl border border-white/25 p-1 bg-gradient-to-br from-purple-500/40 via-cyan-500/20 to-emerald-500/40">
+                                <div class="w-full h-full rounded-[20px] relative overflow-hidden bg-zinc-900">
+                                    <!-- Album Cover Image -->
+                                    <img src="1793510975390.jpg" alt='Okładka albumu WANNA FXCK - NAYRb1tchX' onerror="this.src='https://placehold.co/600x600/18181b/c77dff?text=WANNA+FXCK'" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                                    
+                                    <!-- Subtle Corner Badges -->
+                                    <div class="absolute top-3.5 left-3.5 right-3.5 flex justify-between items-start z-10 pointer-events-none">
+                                        <span class="bg-black/75 backdrop-blur-md border border-pink-500/50 text-pink-300 font-bold text-[10px] px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+                                            PRE-ORDER EXCLUSIVE
+                                        </span>
+                                        <span class="text-[10px] font-mono text-cyan-300 border border-cyan-400/40 bg-black/75 backdrop-blur-md px-2.5 py-1 rounded-lg shadow-lg">
+                                            CAT NO. NAYR-WF01
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Audio Teaser Button -->
+                            <button onclick="playTrack('WANNA FXCK (Album Snippet)', 'WANNA FXCK Pre-Order Preview', '1:45')" class="mt-5 flex items-center gap-2.5 text-xs font-mono text-cyan-300 hover:text-white bg-white/5 border border-cyan-500/30 px-5 py-2.5 rounded-full transition-all hover:bg-cyan-950/40 hover:scale-105">
+                                <i class="fas fa-play text-emerald-400"></i> POSŁUCHAJ SNIPPETU ALBUMU "WANNA FXCK"
+                            </button>
+                        </div>
+
+                        <!-- Right Column: Countdown, Variants, Dedication & Email Pre-Order -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div>
+                                <div class="inline-flex items-center gap-2 text-emerald-400 font-mono text-xs mb-2">
+                                    <i class="fas fa-clock"></i> CZAS DO ZAMKNIĘCIA PULI PRE-ORDEROWEJ
+                                </div>
+                                <!-- COUNTDOWN TIMER -->
+                                <div id="countdownTimer" class="grid grid-cols-4 gap-2 sm:gap-3 max-w-md font-mono text-center">
+                                    <div class="glass-card p-2.5 sm:p-3 rounded-xl border border-white/10">
+                                        <span id="cd-days" class="block text-2xl sm:text-3xl font-black text-purple-300">14</span>
+                                        <span class="text-[10px] text-gray-400 uppercase">Dni</span>
+                                    </div>
+                                    <div class="glass-card p-2.5 sm:p-3 rounded-xl border border-white/10">
+                                        <span id="cd-hours" class="block text-2xl sm:text-3xl font-black text-cyan-300">08</span>
+                                        <span class="text-[10px] text-gray-400 uppercase">Godzin</span>
+                                    </div>
+                                    <div class="glass-card p-2.5 sm:p-3 rounded-xl border border-white/10">
+                                        <span id="cd-mins" class="block text-2xl sm:text-3xl font-black text-purple-300">42</span>
+                                        <span class="text-[10px] text-gray-400 uppercase">Minut</span>
+                                    </div>
+                                    <div class="glass-card p-2.5 sm:p-3 rounded-xl border border-white/10">
+                                        <span id="cd-secs" class="block text-2xl sm:text-3xl font-black text-emerald-400">19</span>
+                                        <span class="text-[10px] text-gray-400 uppercase">Sekund</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                                    "WANNA FXCK" — OFICJALNY ALBUM
+                                </h2>
+                                <p class="text-gray-300 mt-3 text-sm leading-relaxed">
+                                    Najnowszy, bezkompromisowy krążek od <strong class="text-white">NAYRb1tchX</strong>. Mroczna energia, potężny bas i surowy, autentyczny przekaz. Zamawiając w przedsprzedaży, otrzymujesz limitowane wydanie z <span class="text-cyan-300 font-semibold">imiennym autografem</span> oraz kolekcjonerskimi dodatkami.
+                                </p>
+                            </div>
+
+                            <!-- Variant Selector -->
+                            <div class="space-y-2.5">
+                                <label class="block text-xs font-mono text-gray-400 uppercase tracking-wider">1. Wybierz Wariant Wydania:</label>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+                                    <button type="button" onclick="selectPreorderVariant(this, 'CD Standard', 59.90)" class="preorder-variant-btn glass-card p-3.5 rounded-2xl text-left border-2 border-purple-500 bg-purple-900/30 flex flex-col justify-between transition-all">
+                                        <div>
+                                            <div class="font-bold text-sm text-white">CD Standard</div>
+                                            <div class="text-[11px] text-gray-300 mt-0.5">Płyta CD w pudełku Jewel Case + Autograf</div>
+                                        </div>
+                                        <div class="mt-3 text-cyan-300 font-mono font-bold text-sm">59.90 PLN</div>
+                                    </button>
+                                    <button type="button" onclick="selectPreorderVariant(this, 'CD Digipak', 119.99)" class="preorder-variant-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 flex flex-col justify-between transition-all hover:border-purple-400">
+                                        <div>
+                                            <div class="font-bold text-sm text-white">CD Digipak</div>
+                                            <div class="text-[11px] text-gray-300 mt-0.5">Płyta CD + Booklet + Autograf + Wlepki</div>
+                                        </div>
+                                        <div class="mt-3 text-cyan-300 font-mono font-bold text-sm">119.99 PLN</div>
+                                    </button>
+                                    <button type="button" onclick="selectPreorderVariant(this, 'Winyl Deluxe', 199.99)" class="preorder-variant-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 flex flex-col justify-between transition-all hover:border-purple-400">
+                                        <div>
+                                            <div class="font-bold text-sm text-white">Winyl Deluxe</div>
+                                            <div class="text-[11px] text-gray-300 mt-0.5">Limitowany Winyl 180g Gatefold</div>
+                                        </div>
+                                        <div class="mt-3 text-cyan-300 font-mono font-bold text-sm">199.99 PLN</div>
+                                    </button>
+                                    <button type="button" onclick="selectPreorderVariant(this, 'Ultimate Box WANNA FXCK', 349.99)" class="preorder-variant-btn glass-card p-3.5 rounded-2xl text-left border border-white/10 flex flex-col justify-between transition-all hover:border-emerald-400 relative overflow-hidden">
+                                        <div class="absolute -right-4 -top-4 w-12 h-12 bg-emerald-500/25 rounded-full blur-md"></div>
+                                        <div>
+                                            <span class="text-[9px] font-mono bg-emerald-500/20 text-emerald-300 px-1.5 py-0.5 rounded uppercase">VIP Pack</span>
+                                            <div class="font-bold text-sm text-white mt-1">Ultimate Box WANNA FXCK</div>
+                                            <div class="text-[11px] text-gray-300 mt-0.5">CD + Bluza WANNA FXCK + Autograf</div>
+                                        </div>
+                                        <div class="mt-3 text-emerald-400 font-mono font-bold text-sm">349.99 PLN</div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Optional Dedication Input -->
+                            <div class="space-y-1.5">
+                                <label for="preorderDedication" class="block text-xs font-mono text-gray-400 uppercase tracking-wider">2. Dedykacja do Autografu (Opcjonalnie):</label>
+                                <input id="preorderDedication" type="text" placeholder="Wpisz imię lub krótkie hasło, które artysta napisze na okładce..." class="w-full px-4 py-3 rounded-xl bg-black/45 border border-white/15 text-white placeholder-gray-500 focus:outline-none focus:border-cyan-400 transition-colors text-xs sm:text-sm">
+                            </div>
+
+                            <!-- CTA Controls -->
+                            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                                <button type="button" onclick="orderPreorderViaEmail()" class="flex-1 py-4 px-6 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-bold text-sm tracking-wide shadow-lg shadow-purple-500/25 transition-all transform hover:scale-[1.02] flex items-center justify-center gap-2.5">
+                                    <i class="fas fa-envelope text-base"></i> ZAMÓW PRE-ORDER "WANNA FXCK" PRZEZ E-MAIL
+                                </button>
+                                <button type="button" onclick="addSelectedPreorderToCart()" class="py-4 px-5 rounded-xl glass-card hover:bg-white/10 text-gray-200 font-semibold text-xs border border-white/15 flex items-center justify-center gap-2 transition-all">
+                                    <i class="fas fa-cart-plus text-cyan-400"></i> Dodaj do koszyka (z merchem)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. OFFICIAL WEB STORE CATALOG (MERCH & MUSIC) -->
+        <section id="catalog" class="py-16 px-4 sm:px-6">
+            <div class="max-w-7xl mx-auto space-y-8">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/10 pb-6">
+                    <div>
+                        <span class="text-xs font-semibold text-emerald-400 uppercase tracking-widest bg-emerald-950/50 px-3 py-1 rounded-md border border-emerald-500/20">
+                            Official Web Store
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-white mt-3 flex items-center gap-3">
+                            Sklep & Oficjalny Merch
+                        </h2>
+                        <p class="text-gray-400 text-sm mt-1">Limitowana odzież, fizyczne nośniki muzyczne oraz autorskie paczki brzmień NAYRb1tchX.</p>
+                    </div>
+
+                    <!-- Category Filters -->
+                    <div class="flex flex-wrap gap-2" id="storeFilterContainer">
+                        <button onclick="filterStoreProducts('all', this)" class="store-filter-btn glass-button bg-purple-600/40 text-white px-4 py-2 rounded-xl text-xs font-mono font-bold">WSZYSTKO</button>
+                        <button onclick="filterStoreProducts('preorder', this)" class="store-filter-btn glass-card px-4 py-2 rounded-xl text-xs font-mono text-gray-300 hover:text-white">PRE-ORDERY</button>
+                        <button onclick="filterStoreProducts('apparel', this)" class="store-filter-btn glass-card px-4 py-2 rounded-xl text-xs font-mono text-gray-300 hover:text-white">ODZIEŻ</button>
+                        <button onclick="filterStoreProducts('music', this)" class="store-filter-btn glass-card px-4 py-2 rounded-xl text-xs font-mono text-gray-300 hover:text-white">MUZYKA</button>
+                        <button onclick="filterStoreProducts('digital', this)" class="store-filter-btn glass-card px-4 py-2 rounded-xl text-xs font-mono text-gray-300 hover:text-white">CYFROWE / SOUND KITY</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Rendered dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. O MNIE (ABOUT SECTION) -->
+        <section id="about" class="py-16 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                    <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-purple-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <!-- Artist Visual Element -->
+                        <div class="md:col-span-5 flex justify-center">
+                            <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-3xl overflow-hidden glass-card border border-white/20 p-2">
+                                <div class="w-full h-full rounded-2xl bg-gradient-to-br from-purple-900/60 via-black to-cyan-950/60 flex flex-col items-center justify-center text-center p-6 relative group">
+                                    <i class="fas fa-compact-disc text-6xl text-purple-400/80 mb-4 animate-spin" style="animation-duration: 20s;"></i>
+                                    <span class="text-2xl font-black tracking-wider text-white">NAYRb1tchX</span>
+                                    <span class="text-xs font-mono text-cyan-400 mt-1">Sonic Architect • 93 Records</span>
+                                    <div class="absolute inset-0 bg-cyan-500/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="md:col-span-7 space-y-6">
+                            <div class="inline-block text-xs font-semibold text-cyan-400 uppercase tracking-widest bg-cyan-950/50 px-3 py-1 rounded-md border border-cyan-500/20">
+                                O Twórczości
+                            </div>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                                Dźwięki tworzone bez granic gatunkowych.
+                            </h2>
+                            <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                                Niezależny producent muzyczny, wokalista i inżynier dźwięku. W swojej twórczości płynnie łączę mroczne klimaty, <strong class="text-white">phonk</strong>, <strong class="text-white">trap</strong>, <strong class="text-white">post-punk</strong>, <strong class="text-white">synthwave</strong> i brzmienia hip-hopowe z głębokimi, osobistymi tekstami oraz dopracowanym miksem i masteringiem.
+                            </p>
+                            <p class="text-gray-400 leading-relaxed text-sm sm:text-base">
+                                Każdy projekt traktowany jest jako unikalna opowieść – od emocjonalnego krążka <span class="text-purple-300 font-semibold">93</span> z pianinem i skrzypcami, po mroczną, kinową produkcję w albumie <span class="text-cyan-300 font-semibold">APOCALYPSE</span>.
+                            </p>
+
+                            <!-- Stat Pill Widgets -->
+                            <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-2">
+                                <div class="glass-card p-4 rounded-2xl text-center border border-purple-500/20">
+                                    <div class="text-2xl sm:text-3xl font-black text-purple-400">40+</div>
+                                    <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1 font-mono">Utworów</div>
+                                </div>
+                                <div class="glass-card p-4 rounded-2xl text-center border border-cyan-500/20">
+                                    <div class="text-2xl sm:text-3xl font-black text-cyan-400">800+</div>
+                                    <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1 font-mono">Listeners</div>
+                                </div>
+                                <div class="glass-card p-4 rounded-2xl text-center border border-emerald-500/20">
+                                    <div class="text-2xl sm:text-3xl font-black text-emerald-400">100%</div>
+                                    <div class="text-[11px] text-gray-400 uppercase tracking-wider mt-1 font-mono">Independent</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. DOROBEK ARTYSTYCZNY (ARTISTIC ACHIEVEMENTS & EVOLUTION) -->
+        <section id="achievements" class="py-16 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto space-y-12">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-semibold text-pink-400 uppercase tracking-widest bg-pink-950/50 px-3 py-1 rounded-md border border-pink-500/20">
+                        Ewolucja Brzmienia
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">Dorobek Artystyczny</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Szczegółowe zestawienie kamieni milowych, koncepcji brzmieniowych oraz pełnej drogi twórczej NAYRb1tchX.
+                    </p>
+                </div>
+
+                <!-- Showcase Timeline Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Feature Card 1: ALBUM "93" -->
+                    <div class="glass-card rounded-3xl p-8 border border-purple-500/30 relative overflow-hidden flex flex-col justify-between group">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-purple-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-600/20 transition-all"></div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/20 text-purple-300 border border-purple-500/40">
+                                    ALBUM CONCEPTION • 2026
+                                </span>
+                                <span class="text-xs text-gray-400 font-mono">16 Tracks</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-purple-300 transition-colors">
+                                Album "93" – Autobiograficzny Soniczny Pamiętnik
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Album <strong class="text-white">"93"</strong> stanowi jeden z najbardziej osobistych i emocjonalnych fundamentów w dorobku NAYRb1tchX. Łączy surowe, trapowo-phonkowe bębny i nisko schodzący bas z delikatną, niemal kinową oprawą instrumentalną (pianino, smyczki, syntezatory).
+                            </p>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Projekt opowiada historię dorastania, pokonywania przeciwności i poszukiwania własnej tożsamości. Utwory tworzą spójną narrację o determinacji w dążeniu do celu.
+                            </p>
+                            
+                            <!-- Track Highlights -->
+                            <div class="bg-black/40 rounded-2xl p-4 border border-white/5 space-y-2">
+                                <div class="text-xs font-semibold text-purple-400 uppercase tracking-wider">Kluczowe Utwory w Albumie:</div>
+                                <div class="flex flex-wrap gap-1.5 text-[11px] text-gray-300">
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Dzieciak 93</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">2007</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">15 lat</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Igła</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Okno</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Szkoła</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Money</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Ojciec</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Odrzucali Mnie</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Kości</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Afery</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Piaskownica</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-6 mt-4 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Gatunek: Trap / Melodic Rap / Cinematic</span>
+                            <button onclick="playTrack('Dzieciak 93', '93 (Album)', '3:24')" class="text-xs font-bold text-purple-400 hover:text-purple-300 flex items-center gap-1.5 bg-purple-500/10 px-3 py-1.5 rounded-lg border border-purple-500/30">
+                                Odtwórz "Dzieciak 93" <i class="fas fa-play text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 2: ALBUM "APOCALYPSE" -->
+                    <div class="glass-card rounded-3xl p-8 border border-cyan-500/30 relative overflow-hidden flex flex-col justify-between group">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none group-hover:bg-cyan-600/20 transition-all"></div>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40">
+                                    MONUMENTAL PROJECT • 2026
+                                </span>
+                                <span class="text-xs text-gray-400 font-mono">19 Tracks</span>
+                            </div>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                                Album "APOCALYPSE" – Mroczna Wizja Dźwięku
+                            </h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                <strong class="text-white">"APOCALYPSE"</strong> to imponujące wydawnictwo złożone z aż 19 kompozycji. Jest to fuzja post-punku, darkwave'u, synthwave'u, electro-house'u i emo-trapu, przepełniona potężnymi basowymi uderzeniami i przestrzennym tuningiem wokali.
+                            </p>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Album porusza motywy pożegnania, poszukiwania wolności i nieuniknionej zmiany, prezentując pełnię umiejętności produkcyjnych NAYRb1tchX.
+                            </p>
+
+                            <!-- Track Highlights -->
+                            <div class="bg-black/40 rounded-2xl p-4 border border-white/5 space-y-2">
+                                <div class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Kluczowe Utwory w Albumie:</div>
+                                <div class="flex flex-wrap gap-1.5 text-[11px] text-gray-300">
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Biała Flaga</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">CALIFORNIA</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Nadzieja</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">KREW</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">DOM</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">さようなら</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">PIĄTE KOŁO</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Codzienność</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">TYLKO TY</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">After Party</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Bacardí</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">Designer</span>
+                                    <span class="bg-white/5 px-2.5 py-1 rounded-md border border-white/5">PAPITO</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-6 mt-4 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Gatunek: Dark Synth / Post-Punk / Phonk</span>
+                            <button onclick="playTrack('Biała Flaga', 'APOCALYPSE', '3:12')" class="text-xs font-bold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 bg-cyan-500/10 px-3 py-1.5 rounded-lg border border-cyan-500/30">
+                                Odtwórz "Biała Flaga" <i class="fas fa-play text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 3: CONCEPT EPs -->
+                    <div class="glass-card rounded-3xl p-8 border border-pink-500/30 flex flex-col justify-between space-y-4">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-pink-500/20 text-pink-300 border border-pink-500/40">
+                                    CONCEPT EPs
+                                </span>
+                                <span class="text-xs text-gray-400 font-mono">MARIONETKA & Ostatnie Pożegnanie</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Intensywne Projektowe EP</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Oprócz długograjów, dorobek artysty bogaty jest w skoncentrowane minialbumy. <strong class="text-white">MARIONETKA EP</strong> (4 utwory) dogłębnie bada tematykę relacji społecznych i psychologicznych uwarunkowań, podczas gdy <strong class="text-white">Ostatnie Pożegnanie EP</strong> dostarcza nostalgicznych melodyjnych fraz z wyrazistymi liniami basu.
+                            </p>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                                <div class="text-xs text-pink-300 font-semibold">Cechy Charakteryzujące EP:</div>
+                                <ul class="text-xs text-gray-400 space-y-1.5 list-disc list-inside">
+                                    <li>Ekspresowe tempo produkcyjne bez utraty jakości brzmienia.</li>
+                                    <li>Eksperymenty z alternatywnymi strukturami piosenek i tuningiem.</li>
+                                    <li>Bezpośredni, niefiltrowany przekaz emocjonalny.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Format: Minialbumy</span>
+                            <button onclick="playTrack('Marionetka', 'MARIONETKA EP', '2:45')" class="text-xs font-bold text-pink-400 hover:text-pink-300 flex items-center gap-1.5 bg-pink-500/10 px-3 py-1.5 rounded-lg border border-pink-500/30">
+                                Odtwórz "Marionetka" <i class="fas fa-play text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Feature Card 4: SINGLES & SOLO -->
+                    <div class="glass-card rounded-3xl p-8 border border-emerald-500/30 flex flex-col justify-between space-y-4">
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                                    SINGLES & SOLO
+                                </span>
+                                <span class="text-xs text-gray-400 font-mono">Eklektyzm Brzmieniowy</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Singlowe Eksploracje</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed">
+                                Solowe utwory takie jak <strong class="text-white">"Japońskie Samochody"</strong> (nocny, synthwave'owo-driftowy klimat) oraz <strong class="text-white">"Efemeryda"</strong> stanowią dowód na brak ograniczeń gatunkowych. Artysta sięga również po aranżacje akustyczne (<strong class="text-white">"Na Krawędzi Acoustic"</strong>).
+                            </p>
+                            <div class="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2">
+                                <div class="text-xs text-emerald-300 font-semibold">Kluczowe Wydania Singlowe:</div>
+                                <div class="grid grid-cols-2 gap-2 text-xs text-gray-300">
+                                    <div>• Japońskie Samochody</div>
+                                    <div>• Efemeryda</div>
+                                    <div>• Na Krawędzi (Acoustic)</div>
+                                    <div>• Projekty Autorskie</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                            <span class="text-xs text-gray-400">Format: Single Solowe</span>
+                            <button onclick="playTrack('Na Krawędzi (Acoustic)', 'Single Acoustic', '3:08')" class="text-xs font-bold text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 bg-emerald-500/10 px-3 py-1.5 rounded-lg border border-emerald-500/30">
+                                Odtwórz "Na Krawędzi" <i class="fas fa-play text-[10px]"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. DYSKOGRAFIA (DISCOGRAPHY SECTION) -->
+        <section id="discography" class="py-16 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto space-y-10">
+                
+                <!-- Section Header -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div>
+                        <span class="text-xs font-semibold text-purple-400 uppercase tracking-widest bg-purple-950/50 px-3 py-1 rounded-md border border-purple-500/20">
+                            Wydawnictwa
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-white mt-3">Dyskografia</h2>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 glass-card p-1.5 rounded-2xl border border-white/10">
+                        <button onclick="filterReleases('all', this)" class="disco-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-purple-600 text-white">Wszystkie</button>
+                        <button onclick="filterReleases('album', this)" class="disco-filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all">Albumy</button>
+                        <button onclick="filterReleases('ep', this)" class="disco-filter-btn px-4 py-2 rounded-xl text-xs font-semibold text-gray-400 hover:text-white transition-all">EP-ki & Single</button>
+                    </div>
+                </div>
+
+                <!-- ALBUMS GRID -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="releasesGrid">
+                    
+                    <!-- Album 1: 93 -->
+                    <div class="release-card album glass-card glass-card-hover rounded-3xl overflow-hidden p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 rounded-2xl bg-gradient-to-tr from-purple-900 via-purple-950 to-slate-900 flex items-center justify-center mb-6 border border-white/10 group overflow-hidden">
+                                <div class="text-6xl font-black text-white/25 group-hover:scale-110 transition-transform duration-500">93</div>
+                                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button onclick="playTrack('Dzieciak 93', '93 (Album)', '3:24')" class="w-12 h-12 rounded-full bg-cyan-500 text-black flex items-center justify-center text-lg shadow-lg transform hover:scale-110 transition-transform">
+                                        <i class="fas fa-play ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-purple-400 font-semibold tracking-wider uppercase">Album • 16 Utworów</span>
+                                <span class="text-xs text-gray-500">Trap / Rap / Cinematic</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">93</h3>
+                            <p class="text-gray-400 text-xs mb-4 leading-relaxed">
+                                Łączy brzmienia trap/rap z kinowymi instrumentami (pianino, skrzypce). Emocjonalne teksty i surowe bębny.
+                            </p>
+                            <div class="text-xs text-gray-400 space-y-1 mb-6 bg-black/30 p-3 rounded-xl border border-white/5">
+                                <span class="text-gray-300 font-medium block mb-1">Wybrane utwory:</span>
+                                <div class="truncate">• Dzieciak 93, 2007, 15 lat, Igła</div>
+                                <div class="truncate">• Okno, Szkoła, Money, Ojciec</div>
+                                <div class="truncate">• Odrzucali Mnie, Kości, Afery</div>
+                            </div>
+                        </div>
+                        <button onclick="playTrack('Dzieciak 93', '93 (Album)', '3:24')" class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-play text-cyan-400"></i> Odtwórz Utwór Tytułowy
+                        </button>
+                    </div>
+
+                    <!-- Album 2: APOCALYPSE -->
+                    <div class="release-card album glass-card glass-card-hover rounded-3xl overflow-hidden p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 rounded-2xl bg-gradient-to-tr from-red-950 via-slate-950 to-purple-950 flex items-center justify-center mb-6 border border-white/10 group overflow-hidden">
+                                <div class="text-3xl font-black tracking-widest text-red-500/35 group-hover:scale-110 transition-transform duration-500">APOCALYPSE</div>
+                                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button onclick="playTrack('Biała Flaga', 'APOCALYPSE', '3:12')" class="w-12 h-12 rounded-full bg-cyan-500 text-black flex items-center justify-center text-lg shadow-lg transform hover:scale-110 transition-transform">
+                                        <i class="fas fa-play ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-red-400 font-semibold tracking-wider uppercase">Album • 19 Utworów</span>
+                                <span class="text-xs text-gray-500">Dark Synth / Phonk</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">APOCALYPSE</h3>
+                            <p class="text-gray-400 text-xs mb-4 leading-relaxed">
+                                Mroczna i apokaliptyczna wizja dźwiękowa z potężnym basem i hybrydową produkcją.
+                            </p>
+                            <div class="text-xs text-gray-400 space-y-1 mb-6 bg-black/30 p-3 rounded-xl border border-white/5">
+                                <span class="text-gray-300 font-medium block mb-1">Wybrane utwory:</span>
+                                <div class="truncate">• Biała Flaga, CALIFORNIA, Nadzieja</div>
+                                <div class="truncate">• KREW, DOM, PIĄTE KOŁO</div>
+                                <div class="truncate">• Codzienność, TYLKO TY, BI</div>
+                            </div>
+                        </div>
+                        <button onclick="playTrack('Biała Flaga', 'APOCALYPSE', '3:12')" class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-play text-cyan-400"></i> Odtwórz "Biała Flaga"
+                        </button>
+                    </div>
+
+                    <!-- EP 3: MARIONETKA -->
+                    <div class="release-card ep glass-card glass-card-hover rounded-3xl overflow-hidden p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 rounded-2xl bg-gradient-to-tr from-cyan-950 via-slate-900 to-indigo-950 flex items-center justify-center mb-6 border border-white/10 group overflow-hidden">
+                                <div class="text-3xl font-bold tracking-widest text-cyan-400/35 group-hover:scale-110 transition-transform duration-500">MARIONETKA</div>
+                                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button onclick="playTrack('Marionetka', 'MARIONETKA EP', '2:45')" class="w-12 h-12 rounded-full bg-cyan-500 text-black flex items-center justify-center text-lg shadow-lg transform hover:scale-110 transition-transform">
+                                        <i class="fas fa-play ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-cyan-400 font-semibold tracking-wider uppercase">EP • 4 Utwory</span>
+                                <span class="text-xs text-gray-500">Post-Punk / Alternative</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">MARIONETKA</h3>
+                            <p class="text-gray-400 text-xs mb-6 leading-relaxed">
+                                Skoncentrowane, 4-utworowe wydawnictwo eksplorujące motywy kontroli, tożsamości i nowoczesnych relacji.
+                            </p>
+                        </div>
+                        <button onclick="playTrack('Marionetka', 'MARIONETKA EP', '2:45')" class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-play text-cyan-400"></i> Posłuchaj EP
+                        </button>
+                    </div>
+
+                    <!-- EP 4: Ostatnie Pożegnanie EP -->
+                    <div class="release-card ep glass-card glass-card-hover rounded-3xl overflow-hidden p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 rounded-2xl bg-gradient-to-tr from-purple-950 via-pink-950 to-neutral-900 flex items-center justify-center mb-6 border border-white/10 group overflow-hidden">
+                                <div class="text-2xl font-bold text-pink-400/35 text-center px-4 group-hover:scale-110 transition-transform duration-500">Ostatnie Pożegnanie</div>
+                                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button onclick="playTrack('Ostatnie Pożegnanie', 'Ostatnie Pożegnanie EP', '3:05')" class="w-12 h-12 rounded-full bg-cyan-500 text-black flex items-center justify-center text-lg shadow-lg transform hover:scale-110 transition-transform">
+                                        <i class="fas fa-play ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-pink-400 font-semibold tracking-wider uppercase">EP • 4 Utwory</span>
+                                <span class="text-xs text-gray-500">Melodic / Emotional</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Ostatnie Pożegnanie EP</h3>
+                            <p class="text-gray-400 text-xs mb-6 leading-relaxed">
+                                Głębszy, pełen emocjonalnego przekazu projekt z intymną oprawą instrumentalną.
+                            </p>
+                        </div>
+                        <button onclick="playTrack('Ostatnie Pożegnanie', 'Ostatnie Pożegnanie EP', '3:05')" class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-play text-cyan-400"></i> Posłuchaj EP
+                        </button>
+                    </div>
+
+                    <!-- Single 5: Japońskie Samochody -->
+                    <div class="release-card ep glass-card glass-card-hover rounded-3xl overflow-hidden p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 rounded-2xl bg-gradient-to-tr from-blue-950 via-slate-900 to-cyan-950 flex items-center justify-center mb-6 border border-white/10 group overflow-hidden">
+                                <div class="text-2xl font-bold text-cyan-400/35 text-center px-4 group-hover:scale-110 transition-transform duration-500">Japońskie Samochody</div>
+                                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button onclick="playTrack('Japońskie Samochody', 'Single Project', '2:38')" class="w-12 h-12 rounded-full bg-cyan-500 text-black flex items-center justify-center text-lg shadow-lg transform hover:scale-110 transition-transform">
+                                        <i class="fas fa-play ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-blue-400 font-semibold tracking-wider uppercase">Single Project</span>
+                                <span class="text-xs text-gray-500">Night Drive Synthwave</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Japońskie Samochody</h3>
+                            <p class="text-gray-400 text-xs mb-6 leading-relaxed">
+                                Dynamiczny, klimatowy utwór z pulsującym basem idealny do nocnej jazdy.
+                            </p>
+                        </div>
+                        <button onclick="playTrack('Japońskie Samochody', 'Single Project', '2:38')" class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-play text-cyan-400"></i> Posłuchaj Singla
+                        </button>
+                    </div>
+
+                    <!-- Single 6: Efemeryda -->
+                    <div class="release-card ep glass-card glass-card-hover rounded-3xl overflow-hidden p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="relative h-48 rounded-2xl bg-gradient-to-tr from-emerald-950 via-slate-950 to-purple-950 flex items-center justify-center mb-6 border border-white/10 group overflow-hidden">
+                                <div class="text-3xl font-bold text-emerald-400/35 text-center px-4 group-hover:scale-110 transition-transform duration-500">Efemeryda</div>
+                                <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <button onclick="playTrack('Efemeryda', 'Single Project', '3:15')" class="w-12 h-12 rounded-full bg-cyan-500 text-black flex items-center justify-center text-lg shadow-lg transform hover:scale-110 transition-transform">
+                                        <i class="fas fa-play ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs text-emerald-400 font-semibold tracking-wider uppercase">Single Project</span>
+                                <span class="text-xs text-gray-500">Atmospheric Trap</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white mb-2">Efemeryda</h3>
+                            <p class="text-gray-400 text-xs mb-6 leading-relaxed">
+                                Subtelne syntezatory z mocnymi przerwami rytmicznymi i unikalnym masteringiem.
+                            </p>
+                        </div>
+                        <button onclick="playTrack('Efemeryda', 'Single Project', '3:15')" class="w-full py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-gray-200 transition-colors flex items-center justify-center gap-2">
+                            <i class="fas fa-play text-cyan-400"></i> Posłuchaj Singla
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. STUDIO & SOUND (TECHNOLOGY & SETUP) -->
+        <section id="studio" class="py-16 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="glass-card rounded-3xl p-8 md:p-12 relative">
+                    <div class="max-w-3xl mb-10">
+                        <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest bg-cyan-950/50 px-3 py-1 rounded-md border border-cyan-500/20">
+                            Audio Engineering
+                        </span>
+                        <h2 class="text-3xl sm:text-5xl font-black text-white mt-3 mb-4">Studio & Własne Brzmienie</h2>
+                        <p class="text-gray-400 text-sm sm:text-base">
+                            Kompleksowa produkcja muzyczna od pierwszego akordu po gotowy plik produkcyjny master 24-bit / 96kHz.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- DAW -->
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/30 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-sliders-h"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">DAW Setup</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Praca w środowisku Logic Pro X & Reaper z dopracowanym przepływem sygnału dla optymalnej dynamiki.
+                            </p>
+                        </div>
+
+                        <!-- Vocal Tuning -->
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-cyan-500/30 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-cyan-500/20 text-cyan-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-microphone-alt"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Vocal Engineering</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Profesjonalny autotune, unikalny pitching, warstwowanie harmonii oraz wyrazista korekcja barwy.
+                            </p>
+                        </div>
+
+                        <!-- Hybrid Mix -->
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-pink-500/30 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-wave-square"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Hybrid Mix & Master</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Łączenie analogowej saturacji z cyfrową precyzją, dbając o głośność i selektywność dolnych pasm.
+                            </p>
+                        </div>
+
+                        <!-- Custom Sound Design -->
+                        <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-emerald-500/30 transition-all">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-white mb-2">Custom Sound Design</h4>
+                            <p class="text-gray-400 text-xs leading-relaxed">
+                                Tworzenie autorskich syntezatorów i kinowych tekstur dopasowanych pod nastrój konkretnego utworu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. ZAMÓW KONCERT / BOOKING SHOWS -->
+        <section id="booking" class="py-16 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto space-y-10">
+                <div class="text-center max-w-3xl mx-auto space-y-3">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest bg-cyan-950/50 px-3 py-1 rounded-md border border-cyan-500/20">
+                        Live Show & Booking
+                    </span>
+                    <h2 class="text-3xl sm:text-5xl font-black text-white">Zamów Koncert</h2>
+                    <p class="text-gray-400 text-sm sm:text-base">
+                        Zarezerwuj termin na występ klubowy, festiwalowy, plenerowy lub wydarzenie specjalne.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Formularz Bookingowy -->
+                    <div class="lg:col-span-7 glass-card rounded-3xl p-8 md:p-10 border border-cyan-500/30">
+                        <h3 class="text-2xl font-bold text-white mb-2">Formularz Rezerwacji Terminu</h3>
+                        <p class="text-gray-400 text-xs mb-6">Wypełnij dane, aby ustalić szczegóły występów live.</p>
+
+                        <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Organizator / Imię i Nazwisko</label>
+                                    <input type="text" required placeholder="np. Agencja Eventowa X / Jan Kowalski" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">E-mail Kontaktowy</label>
+                                    <input type="email" required placeholder="booking@organizator.pl" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Data Wydarzenia i Miasto</label>
+                                    <input type="text" required placeholder="np. 20.12.2026, Warszawa" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-300 mb-1">Typ Wydarzenia</label>
+                                    <select class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white focus:outline-none focus:border-cyan-400 transition-colors text-sm">
+                                        <option value="club">Koncert Klubowy</option>
+                                        <option value="festival">Festiwal / Plener</option>
+                                        <option value="private">Event Prywatny</option>
+                                        <option value="other">Inny Format</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 mb-1">Dodatkowe Uwagi / Wymagania Budżetowe</label>
+                                <textarea rows="4" placeholder="Podaj wielkość sceny, estymowaną liczbę uczestników lub dodatkowe wymagania..." class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-cyan-400 transition-colors text-sm"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white font-bold text-sm tracking-wide shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2">
+                                <i class="fas fa-calendar-check"></i> Wyślij Zgłoszenie Koncertowe
+                            </button>
+
+                            <div id="bookingSuccess" class="hidden text-center text-xs text-cyan-300 bg-cyan-950/50 p-3.5 rounded-xl border border-cyan-500/30">
+                                Zgłoszenie zostało wysłane! Skontaktujemy się z Tobą w sprawie potwierdzenia terminu.
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Tech Rider & Direct Contact -->
+                    <div class="lg:col-span-5 flex flex-col justify-between space-y-6">
+                        <div class="glass-card rounded-3xl p-8 border border-white/10 space-y-4">
+                            <span class="text-xs font-semibold text-purple-400 uppercase tracking-widest bg-purple-950/50 px-3 py-1 rounded-md border border-purple-500/20">
+                                Specyfikacja
+                            </span>
+                            <h3 class="text-xl font-bold text-white">Rider Techniczny (Live Set)</h3>
+                            <ul class="text-xs text-gray-300 space-y-3.5">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-sliders-h text-cyan-400 text-sm"></i>
+                                    <span>Konsoleta DJ / Mikser Stereo (min. 2 kanały input)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-microphone-alt text-purple-400 text-sm"></i>
+                                    <span>1x Wysokiej jakości Mikrofon Bezprzewodowy (UHF/VHF)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-volume-up text-pink-400 text-sm"></i>
+                                    <span>Odsłuchy Sceniczne (Dedykowany DJ Monitor)</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-tv text-emerald-400 text-sm"></i>
+                                    <span>Opcjonalnie: Ekran LED do wizualizacji scenicznych (VFX)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="glass-card rounded-3xl p-8 border border-purple-500/30 text-center space-y-3">
+                            <i class="fas fa-headset text-3xl text-purple-400 mb-1"></i>
+                            <h4 class="text-lg font-bold text-white">Bezpośredni Kontakt Bookingowy</h4>
+                            <p class="text-xs text-gray-400">Masz pilne pytanie dotyczące występów?</p>
+                            <a href="mailto:booking@nayrb1tchx.com" class="inline-block text-sm font-extrabold text-cyan-300 hover:underline font-mono">
+                                booking@nayrb1tchx.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. STREAMING PLATFORMS & KONTAKT -->
+        <section id="contact" class="py-16 px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Platform Links Card -->
+                <div class="lg:col-span-5 glass-card rounded-3xl p-8 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold text-purple-400 uppercase tracking-widest bg-purple-950/50 px-3 py-1 rounded-md border border-purple-500/20">
+                            Streaming & Socials
+                        </span>
+                        <h2 class="text-3xl font-extrabold text-white mt-3 mb-4">Bądź na bieżąco</h2>
+                        <p class="text-gray-400 text-sm mb-6">
+                            Słuchaj moich utworów na wszystkich głównych platformach streamingowych.
+                        </p>
+
+                        <div class="space-y-3">
+                            <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-spotify text-emerald-400 text-xl"></i>
+                                    <span class="text-sm font-semibold text-white">Spotify</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-white transition-colors text-xs"></i>
+                            </a>
+
+                            <a href="https://music.apple.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-apple text-pink-400 text-xl"></i>
+                                    <span class="text-sm font-semibold text-white">Apple Music</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-white transition-colors text-xs"></i>
+                            </a>
+
+                            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <i class="fab fa-youtube text-red-500 text-xl"></i>
+                                    <span class="text-sm font-semibold text-white">YouTube</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-white transition-colors text-xs"></i>
+                            </a>
+
+                            <a href="https://mugo.pl" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 transition-all group">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-music text-purple-400 text-xl"></i>
+                                    <span class="text-sm font-semibold text-white">MUGO Distribution</span>
+                                </div>
+                                <i class="fas fa-arrow-right text-gray-500 group-hover:text-white transition-colors text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-white/10 text-xs text-gray-400 font-mono flex items-center justify-between">
+                        <span>INDEPENDENT / 93 RECORDS</span>
+                        <span class="text-emerald-400">24-BIT / 96kHz</span>
+                    </div>
+                </div>
+
+                <!-- Contact Form Card -->
+                <div class="lg:col-span-7 glass-card rounded-3xl p-8 md:p-10">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-widest bg-cyan-950/50 px-3 py-1 rounded-md border border-cyan-500/20">
+                        Napisz do mnie
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-white mt-3 mb-2">Współpraca / Kontakt</h2>
+                    <p class="text-gray-400 text-sm mb-6">
+                        Masz pytanie dotyczące miksu, masteringu, zamówień ze sklepu lub produkcji utworów? Wyślij wiadomość.
+                    </p>
+
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 mb-1">Imię / Pseudonim</label>
+                                <input type="text" required placeholder="np. Jan Kowalski" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-300 mb-1">Adres Email</label>
+                                <input type="email" required placeholder="jan@example.com" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors text-sm">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">Temat</label>
+                            <input type="text" required placeholder="Współpraca / Mix & Master / Pytanie o Pre-Order" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-300 mb-1">Wiadomość</label>
+                            <textarea rows="4" required placeholder="Opisz swój projekt lub pytanie..." class="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-purple-500 transition-colors text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-bold text-sm tracking-wide shadow-lg shadow-purple-500/20 transition-all flex items-center justify-center gap-2">
+                            <i class="far fa-paper-plane"></i> Wyślij Wiadomość
+                        </button>
+
+                        <div id="formSuccess" class="hidden text-center text-xs text-emerald-300 bg-emerald-950/50 p-3.5 rounded-xl border border-emerald-500/30">
+                            Dziękuję za wiadomość! Odpowiem tak szybko, jak to możliwe.
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 12. FOOTER -->
+        <footer class="mt-auto border-t border-white/10 py-8 px-4 sm:px-6 bg-black/40">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400">
+                <div>
+                    &copy; 2026 <span class="text-white font-semibold">NAYRb1tchX</span>. Wszystkie prawa zastrzeżone.
+                </div>
+                <div class="flex flex-wrap justify-center items-center gap-5">
+                    <a href="#preorder" class="hover:text-purple-300 transition-colors">Pre-Order "WANNA FXCK"</a>
+                    <a href="#catalog" class="hover:text-emerald-300 transition-colors">Sklep & Merch</a>
+                    <a href="#about" class="hover:text-white transition-colors">O Mnie</a>
+                    <a href="#achievements" class="hover:text-white transition-colors">Dorobek</a>
+                    <a href="#discography" class="hover:text-white transition-colors">Dyskografia</a>
+                    <a href="#booking" class="hover:text-white transition-colors">Zamów Koncert</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Kontakt</a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- 13. INTERACTIVE AUDIO PLAYER BAR (STICKY BOTTOM) -->
+    <div class="fixed bottom-0 left-0 right-0 z-40 glass-nav border-t border-white/15 px-4 py-3 shadow-2xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            
+            <!-- Currently Playing Info -->
+            <div class="flex items-center gap-3 w-1/3 min-w-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-900/80 to-cyan-900/80 border border-white/15 flex items-center justify-center text-cyan-300 font-bold text-xs flex-shrink-0">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="truncate">
+                    <div id="playerTrackTitle" class="text-xs font-bold text-white truncate">Dzieciak 93</div>
+                    <div id="playerTrackAlbum" class="text-[10px] font-mono text-gray-400 truncate">93 (Album)</div>
+                </div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="flex flex-col items-center gap-1 w-1/3">
+                <div class="flex items-center gap-4">
+                    <button onclick="prevTrack()" aria-label="Poprzedni utwór" class="text-gray-400 hover:text-white text-xs transition-colors p-1"><i class="fas fa-step-backward"></i></button>
+                    <button id="mainPlayBtn" onclick="togglePlay()" aria-label="Odtwarzaj lub wstrzymaj" class="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center text-xs shadow-md hover:scale-105 transition-transform">
+                        <i class="fas fa-play ml-0.5" id="mainPlayIcon"></i>
+                    </button>
+                    <button onclick="nextTrack()" aria-label="Następny utwór" class="text-gray-400 hover:text-white text-xs transition-colors p-1"><i class="fas fa-step-forward"></i></button>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full max-w-xs flex items-center gap-2">
+                    <span id="currentTime" class="text-[10px] font-mono text-gray-400">0:00</span>
+                    <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden cursor-pointer" onclick="seek(event)">
+                        <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 via-cyan-400 to-emerald-400 w-0 transition-all duration-300"></div>
+                    </div>
+                    <span id="totalTime" class="text-[10px] font-mono text-gray-400">3:24</span>
+                </div>
+            </div>
+
+            <!-- Visualizer Animated Bars -->
+            <div class="flex items-center justify-end gap-1 w-1/3" id="visualizer">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 14. CART SLIDE-OVER DRAWER MODAL -->
+    <div id="cartModal" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300">
+        <!-- Backdrop -->
+        <div onclick="toggleCartModal()" class="absolute inset-0 bg-black/75 backdrop-blur-md"></div>
+        
+        <!-- Cart Drawer -->
+        <div class="absolute right-0 top-0 h-full w-full max-w-md glass-card-glow border-l border-white/15 shadow-2xl flex flex-col justify-between z-10 p-6 overflow-y-auto">
+            <div>
+                <!-- Cart Header -->
+                <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                    <h3 class="text-lg font-extrabold text-white flex items-center gap-2.5">
+                        <i class="fas fa-shopping-bag text-purple-400"></i> TWÓJ KOSZYK
+                    </h3>
+                    <button onclick="toggleCartModal()" aria-label="Zamknij koszyk" class="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white transition-colors">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div id="cartItemsContainer" class="py-4 space-y-3">
+                    <!-- Items injected via JS -->
+                </div>
+            </div>
+
+            <!-- Cart Summary & Checkout -->
+            <div class="border-t border-white/10 pt-4 space-y-4">
+                <div class="space-y-1.5 font-mono text-xs text-gray-300">
+                    <div class="flex justify-between">
+                        <span>SUMA CZĘŚCIOWA:</span>
+                        <span id="cartSubtotal" class="font-bold">0.00 PLN</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>WYSYŁKA (KURIER / PACZKOMAT):</span>
+                        <span class="text-emerald-400 font-bold">GRATIS</span>
+                    </div>
+                    <div class="flex justify-between text-base font-bold text-white pt-2 border-t border-white/10">
+                        <span>RAZEM DO ZAPŁATY:</span>
+                        <span id="cartTotal" class="text-cyan-300">0.00 PLN</span>
+                    </div>
+                </div>
+
+                <button onclick="openCheckoutModal()" id="checkoutBtn" disabled class="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-purple-600/30 transition-all disabled:opacity-40 disabled:cursor-not-allowed">
+                    PRZEJDŹ DO PŁATNOŚCI <i class="fas fa-arrow-right text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkoutModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+        <div onclick="closeCheckoutModal()" class="absolute inset-0 bg-black/80 backdrop-blur-lg"></div>
+        <div class="relative z-10 w-full max-w-lg glass-card-glow rounded-3xl p-6 sm:p-8 border border-purple-500/35 shadow-2xl max-h-[90vh] overflow-y-auto">
+            
+            <div class="flex justify-between items-center border-b border-white/10 pb-4 mb-5">
+                <h3 class="text-xl font-black text-white flex items-center gap-2.5">
+                    <i class="fas fa-envelope-open-text text-emerald-400"></i> ZAMÓWIENIE PRZEZ E-MAIL
+                </h3>
+                <button onclick="closeCheckoutModal()" aria-label="Zamknij okno zamówienia" class="text-gray-400 hover:text-white p-1">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+
+            <form id="emailCheckoutForm" onsubmit="processEmailOrder(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-mono text-gray-300 mb-1">IMIĘ I NAZWISKO</label>
+                    <input id="checkoutName" type="text" required placeholder="np. Jan Kowalski" class="w-full bg-black/45 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-mono text-gray-300 mb-1">TWÓJ EMAIL</label>
+                        <input id="checkoutEmail" type="email" required placeholder="twoj@email.com" class="w-full bg-black/45 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-mono text-gray-300 mb-1">TELEFON</label>
+                        <input id="checkoutPhone" type="tel" required placeholder="+48 000 000 000" class="w-full bg-black/45 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-gray-300 mb-1">ADRES DOSTAWY / KOD PACZKOMATU</label>
+                    <input id="checkoutAddress" type="text" required placeholder="np. KOW01M lub ul. Prosta 12, Warszawa" class="w-full bg-black/45 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-mono text-gray-300 mb-1">UWAGI / DEDYKACJA DO AUTOGRAFU (OPCJONALNIE)</label>
+                    <textarea id="checkoutNotes" rows="2" placeholder="np. Proszę o dedykację dla Michała..." class="w-full bg-black/45 border border-white/15 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-purple-500"></textarea>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-purple-950/35 border border-purple-500/25 text-xs text-gray-300 leading-relaxed">
+                    <i class="fas fa-info-circle text-cyan-400 mr-1.5"></i> Po kliknięciu przycisku otworzy się Twój program pocztowy z gotową wiadomością na adres <strong class="text-white font-mono">zamowienia@nayrb1tchx.com</strong> zawierającą pełną listę produktów z koszyka i dane dostawy.
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full mt-2 py-4 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white font-extrabold text-sm tracking-wide shadow-lg shadow-purple-900/40 transition-all flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane"></i> WYŚLIJ ZAMÓWIENIE E-MAILEM
+                </button>
+            </form>
+
+            <!-- Email Generated Confirmation & Clipboard Fallback -->
+            <div id="emailOrderFallbackBox" class="hidden mt-5 pt-4 border-t border-white/15 space-y-3">
+                <div class="p-3.5 rounded-xl bg-emerald-950/50 border border-emerald-500/35 text-xs text-emerald-300">
+                    <div class="font-bold text-white mb-1"><i class="fas fa-check-circle text-emerald-400 mr-1.5"></i> Wygenerowano treść wiadomości e-mail!</div>
+                    Jeśli Twój program pocztowy nie otworzył się automatycznie, skopiuj poniższą treść i wyślij ją ręcznie na <strong class="text-white font-mono">zamowienia@nayrb1tchx.com</strong>.
+                </div>
+                <textarea id="generatedOrderText" readonly rows="6" class="w-full bg-black/60 border border-white/15 rounded-xl p-3 text-[11px] font-mono text-gray-200 focus:outline-none"></textarea>
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <button type="button" onclick="copyOrderSummaryToClipboard()" class="flex-1 py-2.5 px-4 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs flex items-center justify-center gap-2 transition-colors">
+                        <i class="fas fa-copy text-cyan-400"></i> <span id="copyBtnLabel">Kopiuj treść zamówienia</span>
+                    </button>
+                    <button type="button" onclick="finalizeAndClearCart()" class="py-2.5 px-4 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 border border-emerald-500/40 text-emerald-300 font-bold text-xs transition-colors">
+                        Gotowe, wyczyść koszyk
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORDER CONFIRMATION TOAST -->
+    <div id="orderToast" class="fixed bottom-24 right-4 sm:right-6 z-50 hidden max-w-sm glass-card-glow p-4 rounded-2xl border border-emerald-500/40 shadow-2xl flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg font-bold shrink-0">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div>
+            <h4 class="text-sm font-bold text-white">OTWARTO WIADOMOŚĆ E-MAIL!</h4>
+            <p class="text-xs text-gray-300 mt-0.5">Uzupełnij dane wysyłki w swoim programie pocztowym i wyślij zamówienie.</p>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // ==========================================
+        // 1. STORE CATALOG DATA & STATE
+        // ==========================================
+        const storeProducts = [
+            {
+                id: 'prod-wf-cd-std',
+                title: 'Album "WANNA FXCK" CD Standard',
+                category: 'preorder',
+                price: 59.90,
+                badge: 'PRE-ORDER • 59.90 PLN',
+                badgeColor: 'bg-pink-600',
+                imageBg: 'from-purple-900 via-purple-950 to-black',
+                coverImage: '1793510975390.jpg',
+                icon: 'fa-compact-disc',
+                isAlbum: true,
+                sizes: null,
+                desc: 'Płyta CD w pudełku Jewel Case z oryginalną poligrafią i odręcznym autografem NAYRb1tchX.'
+            },
+            {
+                id: 'prod-wf-cd-digi',
+                title: 'Album "WANNA FXCK" Limitowany CD Digipak',
+                category: 'preorder',
+                price: 119.99,
+                badge: 'PRE-ORDER DIGIPAK',
+                badgeColor: 'bg-purple-600',
+                imageBg: 'from-purple-950 via-slate-900 to-black',
+                coverImage: '1793510975390.jpg',
+                icon: 'fa-compact-disc',
+                isAlbum: true,
+                sizes: null,
+                desc: 'Kolekcjonerski CD Digipak, rozbudowany booklet z tekstami, autograf oraz zestaw wlepek.'
+            },
+            {
+                id: 'prod-wf-vinyl',
+                title: 'Winyl "WANNA FXCK" Deluxe Gatefold',
+                category: 'music',
+                price: 199.99,
+                badge: 'PRE-ORDER VINYL',
+                badgeColor: 'bg-cyan-600',
+                imageBg: 'from-purple-950 via-cyan-950 to-black',
+                coverImage: '1793510975390.jpg',
+                icon: 'fa-record-vinyl',
+                isAlbum: true,
+                sizes: null,
+                desc: 'Limitowany winyl 180g w rozkładanej okładce Gatefold z grafiką "WANNA FXCK" i autografem.'
+            },
+            {
+                id: 'prod-wf-hoodie',
+                title: 'Hoodie Oversize "WANNA FXCK" Acid-Black',
+                category: 'apparel',
+                price: 289.99,
+                badge: 'LIMITOWANY MERCH',
+                badgeColor: 'bg-purple-600',
+                imageBg: 'from-gray-900 via-purple-950 to-black',
+                coverImage: null,
+                icon: 'fa-tshirt',
+                isAlbum: false,
+                sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+                desc: 'Ciężka bawełna 480 GSM, efekt sprania acid-wash, haftowane logo NAYRb1tchX & WANNA FXCK.'
+            },
+            {
+                id: 'prod-3',
+                title: 'T-Shirt "APOCALYPSE" Tour Edition',
+                category: 'apparel',
+                price: 149.99,
+                badge: 'NOWOŚĆ',
+                badgeColor: 'bg-emerald-600',
+                imageBg: 'from-emerald-950 via-slate-900 to-black',
+                coverImage: null,
+                icon: 'fa-tshirt',
+                isAlbum: false,
+                sizes: ['S', 'M', 'L', 'XL'],
+                desc: 'Krój boxy-fit, sitodruk z tyłu i przodu z trwałym neonowym wykończeniem UV.'
+            },
+            {
+                id: 'prod-5',
+                title: 'NAYRb1tchX Sound Kit Vol. 1 (Digital)',
+                category: 'digital',
+                price: 99.99,
+                badge: 'DIGITAL DOWNLOAD',
+                badgeColor: 'bg-blue-600',
+                imageBg: 'from-blue-950 via-purple-950 to-black',
+                coverImage: null,
+                icon: 'fa-wave-square',
+                isAlbum: false,
+                sizes: null,
+                desc: 'Ponad 150 autorskich presetów Serum, 808 drum-kitów i kinowych tekstur syntetycznych.'
+            }
+        ];
+
+        let currentSelectedPreorder = {
+            id: 'preorder-wf-cd-standard',
+            variantName: 'CD Standard',
+            title: 'PRE-ORDER "WANNA FXCK": CD Standard',
+            price: 59.90,
+            size: 'Edycja Limitowana'
+        };
+
+        let cart = [];
+        const selectedSizes = {};
+
+        // ==========================================
+        // 2. RENDER STORE CATALOG & FILTERING
+        // ==========================================
+        function renderStoreProducts(filterCategory) {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            const filtered = filterCategory === 'all' 
+                ? storeProducts 
+                : storeProducts.filter(p => p.category === filterCategory);
+
+            filtered.forEach(p => {
+                const card = document.createElement('div');
+                card.className = 'glass-card glass-card-hover rounded-3xl overflow-hidden border border-white/10 flex flex-col justify-between group';
+                
+                let sizeHTML = '';
+                if (p.sizes) {
+                    const activeSize = selectedSizes[p.id] || p.sizes[0];
+                    sizeHTML = `
+                        <div class="mt-3">
+                            <span class="text-[10px] font-mono text-gray-400 block mb-1.5">WYBIERZ ROZMIAR:</span>
+                            <div class="flex flex-wrap gap-1.5" id="size-select-${p.id}">
+                                ${p.sizes.map(s => `
+                                    <button type="button" onclick="selectProductSize('${p.id}', '${s}', this)" class="size-btn ${s === activeSize ? 'bg-purple-600 text-white border-purple-400' : 'bg-white/5 text-gray-300 border-white/10'} text-[10px] font-mono px-2.5 py-1 rounded-lg border hover:border-purple-400 transition-colors">
+                                        ${s}
+                                    </button>
+                                `).join('')}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                const visualHeaderHTML = p.coverImage ? `
+                    <div class="h-52 relative overflow-hidden border-b border-white/10 bg-zinc-900">
+                        <img src="${p.coverImage}" alt="${p.title}" onerror="this.src='https://placehold.co/600x400/18181b/c77dff?text=WANNA+FXCK'" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                        <span class="${p.badgeColor} text-white font-bold text-[10px] px-3 py-1 rounded-full absolute top-3 left-3 tracking-wider font-mono shadow-lg">
+                            ${p.badge}
+                        </span>
+                    </div>
+                ` : `
+                    <div class="h-52 bg-gradient-to-tr ${p.imageBg} p-6 relative flex items-center justify-center overflow-hidden border-b border-white/10">
+                        <span class="${p.badgeColor} text-white font-bold text-[10px] px-3 py-1 rounded-full absolute top-3.5 left-3.5 tracking-wider font-mono shadow-md">
+                            ${p.badge}
+                        </span>
+                        <div class="text-center group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas ${p.icon} text-5xl text-purple-300/50 mb-2"></i>
+                            <div class="text-sm font-mono font-bold text-white/70 tracking-widest uppercase">${p.category}</div>
+                        </div>
+                    </div>
+                `;
+
+                const directEmailButtonHTML = p.isAlbum ? `
+                    <button type="button" onclick="orderSingleProductViaEmail('${p.id}')" class="px-3 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-500 hover:to-cyan-400 text-white text-xs font-bold flex items-center gap-1.5 shadow-md transition-all">
+                        <i class="fas fa-envelope"></i> Zamów przez E-mail
+                    </button>
+                ` : '';
+
+                card.innerHTML = `
+                    <div>
+                        ${visualHeaderHTML}
+
+                        <div class="p-6 space-y-2">
+                            <h3 class="font-bold text-lg text-white group-hover:text-cyan-300 transition-colors">${p.title}</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">${p.desc}</p>
+                            ${sizeHTML}
+                        </div>
+                    </div>
+
+                    <div class="p-6 pt-4 flex flex-wrap items-center justify-between gap-2 border-t border-white/10 bg-black/20">
+                        <div>
+                            <span class="text-[10px] font-mono text-gray-400 block">CENA:</span>
+                            <span class="text-lg font-extrabold text-emerald-400 font-mono">${p.price.toFixed(2)} PLN</span>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2">
+                            ${directEmailButtonHTML}
+                            <button type="button" onclick="addToCart('${p.id}')" class="glass-button px-3.5 py-2.5 rounded-xl text-xs font-bold text-white flex items-center gap-1.5">
+                                <i class="fas fa-cart-plus text-cyan-300"></i> Dodaj do koszyka
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function orderSingleProductViaEmail(productId) {
+            const prod = storeProducts.find(p => p.id === productId);
+            if (!prod) return;
+
+            const subject = encodeURIComponent(`ZAMÓWIENIE PŁYTY - ${prod.title}`);
+            const bodyText = [
+                `Cześć NAYRb1tchX!`,
+                ``,
+                `Chciałbym zamówić wydanie z oficjalnego sklepu:`,
+                `- Produkt: ${prod.title}`,
+                `- Cena: ${prod.price.toFixed(2)} PLN`,
+                `- Dedykacja do autografu (opcjonalnie): `,
+                ``,
+                `Moje dane do wysyłki:`,
+                `- Imię i nazwisko: `,
+                `- Numer telefonu: `,
+                `- Paczkomat InPost / Adres dostawy: `,
+                ``,
+                `Proszę o dane do płatności i potwierdzenie zamówienia.`
+            ].join('\n');
+
+            const mailtoUrl = `mailto:preorder@nayrb1tchx.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+            window.location.href = mailtoUrl;
+
+            const toast = document.getElementById('orderToast');
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 5500);
+        }
+
+        function filterStoreProducts(category, btnElement) {
+            document.querySelectorAll('.store-filter-btn').forEach(btn => {
+                btn.classList.remove('glass-button', 'bg-purple-600/40', 'text-white', 'font-bold');
+                btn.classList.add('glass-card', 'text-gray-300');
+            });
+            btnElement.classList.add('glass-button', 'bg-purple-600/40', 'text-white', 'font-bold');
+            btnElement.classList.remove('glass-card', 'text-gray-300');
+            renderStoreProducts(category);
+        }
+
+        function selectProductSize(productId, size, btn) {
+            selectedSizes[productId] = size;
+            const container = document.getElementById(`size-select-${productId}`);
+            if (container) {
+                container.querySelectorAll('.size-btn').forEach(b => {
+                    b.classList.remove('bg-purple-600', 'text-white', 'border-purple-400');
+                    b.classList.add('bg-white/5', 'text-gray-300', 'border-white/10');
+                });
+                btn.classList.add('bg-purple-600', 'text-white', 'border-purple-400');
+                btn.classList.remove('bg-white/5', 'text-gray-300', 'border-white/10');
+            }
+        }
+
+        // ==========================================
+        // 3. PRE-ORDER HERO SELECTION & CART LOGIC
+        // ==========================================
+        function selectPreorderVariant(element, title, price) {
+            document.querySelectorAll('.preorder-variant-btn').forEach(btn => {
+                btn.classList.remove('border-2', 'border-purple-500', 'bg-purple-900/30');
+                btn.classList.add('border', 'border-white/10');
+            });
+            element.classList.add('border-2', 'border-purple-500', 'bg-purple-900/30');
+            element.classList.remove('border', 'border-white/10');
+
+            currentSelectedPreorder = {
+                id: 'preorder-wf-' + title.replace(/\s+/g, '-').toLowerCase(),
+                variantName: title,
+                title: 'PRE-ORDER "WANNA FXCK": ' + title,
+                price: price,
+                size: 'Edycja Limitowana'
+            };
+        }
+
+        function orderPreorderViaEmail() {
+            const dedicationInput = document.getElementById('preorderDedication');
+            const dedicationText = dedicationInput.value.trim();
+            const dedicationLine = dedicationText ? dedicationText : '(brak dedykacji)';
+
+            const subject = encodeURIComponent(`PRE-ORDER ALBUMU WANNA FXCK - ${currentSelectedPreorder.variantName}`);
+            const bodyText = [
+                `Cześć NAYRb1tchX!`,
+                ``,
+                `Składam zamówienie Pre-Order na album "WANNA FXCK":`,
+                `- Wybrany wariant: ${currentSelectedPreorder.variantName}`,
+                `- Cena: ${currentSelectedPreorder.price.toFixed(2)} PLN`,
+                `- Dedykacja do autografu: ${dedicationLine}`,
+                ``,
+                `Moje dane do wysyłki:`,
+                `- Imię i nazwisko: `,
+                `- Numer telefonu: `,
+                `- Kod Paczkomatu / Adres dostawy: `,
+                ``,
+                `Czekam na wiadomość zwrotną ze szczegółami finalizacji.`
+            ].join('\n');
+
+            const mailtoUrl = `mailto:preorder@nayrb1tchx.com?subject=${subject}&body=${encodeURIComponent(bodyText)}`;
+            window.location.href = mailtoUrl;
+
+            const toast = document.getElementById('orderToast');
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 5500);
+        }
+
+        function addSelectedPreorderToCart() {
+            const dedicationInput = document.getElementById('preorderDedication');
+            const dedicationText = dedicationInput.value.trim();
+            const variantLabel = dedicationText 
+                ? `Autograf: "${dedicationText}"` 
+                : currentSelectedPreorder.size;
+
+            const uniqueId = `${currentSelectedPreorder.id}-${variantLabel}`;
+            const existing = cart.find(item => item.uniqueId === uniqueId);
+            
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    uniqueId: uniqueId,
+                    id: currentSelectedPreorder.id,
+                    title: currentSelectedPreorder.title,
+                    price: currentSelectedPreorder.price,
+                    size: variantLabel,
+                    quantity: 1
+                });
+            }
+            dedicationInput.value = '';
+            updateCartUI();
+            toggleCartModal();
+        }
+
+        function addToCart(productId) {
+            const prod = storeProducts.find(p => p.id === productId);
+            if (!prod) return;
+
+            const chosenSize = selectedSizes[productId] || (prod.sizes ? prod.sizes[0] : 'Standard');
+            const itemUniqueId = `${prod.id}-${chosenSize}`;
+
+            const existing = cart.find(item => item.uniqueId === itemUniqueId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    uniqueId: itemUniqueId,
+                    id: prod.id,
+                    title: prod.title,
+                    price: prod.price,
+                    size: chosenSize,
+                    quantity: 1
+                });
+            }
+
+            updateCartUI();
+            toggleCartModal();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cartItemsContainer');
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const cartSubtotal = document.getElementById('cartSubtotal');
+            const cartTotal = document.getElementById('cartTotal');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            const totalItemsCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCountBadge.innerText = totalItemsCount;
+
+            let totalSum = 0;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12 text-gray-400 font-mono text-xs">
+                        <i class="fas fa-shopping-basket text-3xl mb-3 text-gray-600 block"></i>
+                        TWÓJ KOSZYK JEST PUSTY
+                    </div>
+                `;
+                checkoutBtn.disabled = true;
+            } else {
+                checkoutBtn.disabled = false;
+                container.innerHTML = cart.map((item, index) => {
+                    const itemTotal = item.price * item.quantity;
+                    totalSum += itemTotal;
+                    return `
+                        <div class="glass-card p-3.5 rounded-2xl border border-white/10 flex items-center justify-between gap-3">
+                            <div class="space-y-1 min-w-0">
+                                <div class="font-bold text-xs text-white truncate">${item.title}</div>
+                                <div class="text-[10px] font-mono text-purple-300 truncate">Wariant: ${item.size}</div>
+                                <div class="text-xs font-mono text-emerald-400 font-bold">${item.price.toFixed(2)} PLN</div>
+                            </div>
+                            <div class="flex items-center gap-2 shrink-0">
+                                <div class="flex items-center border border-white/15 rounded-lg bg-black/50">
+                                    <button type="button" onclick="changeQuantity(${index}, -1)" class="px-2 py-1 text-xs text-gray-300 hover:text-white">-</button>
+                                    <span class="px-2 text-xs font-mono text-white">${item.quantity}</span>
+                                    <button type="button" onclick="changeQuantity(${index}, 1)" class="px-2 py-1 text-xs text-gray-300 hover:text-white">+</button>
+                                </div>
+                                <button type="button" onclick="removeFromCart(${index})" aria-label="Usuń z koszyka" class="text-gray-400 hover:text-red-400 text-xs p-1.5">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            cartSubtotal.innerText = totalSum.toFixed(2) + ' PLN';
+            cartTotal.innerText = totalSum.toFixed(2) + ' PLN';
+        }
+
+        function changeQuantity(index, delta) {
+            cart[index].quantity += delta;
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCartModal() {
+            const modal = document.getElementById('cartModal');
+            if (modal.classList.contains('invisible')) {
+                modal.classList.remove('invisible', 'opacity-0');
+                modal.classList.add('opacity-100');
+            } else {
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('invisible'), 300);
+            }
+        }
+
+        function openCheckoutModal() {
+            toggleCartModal();
+            document.getElementById('emailOrderFallbackBox').classList.add('hidden');
+            document.getElementById('checkoutModal').classList.remove('hidden');
+            document.getElementById('checkoutModal').classList.add('flex');
+        }
+
+        function closeCheckoutModal() {
+            document.getElementById('checkoutModal').classList.add('hidden');
+            document.getElementById('checkoutModal').classList.remove('flex');
+        }
+
+        function processEmailOrder(e) {
+            e.preventDefault();
+            if (cart.length === 0) return;
+
+            const customerName = document.getElementById('checkoutName').value.trim();
+            const customerEmail = document.getElementById('checkoutEmail').value.trim();
+            const customerPhone = document.getElementById('checkoutPhone').value.trim();
+            const customerAddress = document.getElementById('checkoutAddress').value.trim();
+            const customerNotes = document.getElementById('checkoutNotes').value.trim();
+
+            let totalSum = 0;
+            const itemLines = cart.map((item, idx) => {
+                const lineTotal = item.price * item.quantity;
+                totalSum += lineTotal;
+                return `${idx + 1}. ${item.title} | Wariant/Rozmiar: ${item.size} | Ilość: ${item.quantity} szt. | Cena: ${lineTotal.toFixed(2)} PLN`;
+            });
+
+            const fullSummaryText = [
+                `ZAMÓWIENIE ZE SKLEPU NAYRb1tchX`,
+                `====================================`,
+                `ZAMÓWIONE PRODUKTY:`,
+                ...itemLines,
+                ``,
+                `ŁĄCZNA KWOTA DO ZAPŁATY: ${totalSum.toFixed(2)} PLN (Wysyłka: GRATIS)`,
+                ``,
+                `DANE DO WYSYŁKI:`,
+                `- Imię i nazwisko: ${customerName}`,
+                `- E-mail kontaktowy: ${customerEmail}`,
+                `- Telefon: ${customerPhone}`,
+                `- Adres dostawy / Paczkomat: ${customerAddress}`,
+                `- Uwagi / Dedykacja: ${customerNotes || '(brak)'}`,
+                `====================================`,
+                `Proszę o potwierdzenie zamówienia i przesłanie danych do płatności.`
+            ].join('\n');
+
+            const subject = encodeURIComponent(`ZAMÓWIENIE SKLEP NAYRb1tchX - ${customerName}`);
+            const mailtoUrl = `mailto:zamowienia@nayrb1tchx.com?subject=${subject}&body=${encodeURIComponent(fullSummaryText)}`;
+
+            // Show generated fallback text and copy button inside modal
+            document.getElementById('generatedOrderText').value = fullSummaryText;
+            document.getElementById('emailOrderFallbackBox').classList.remove('hidden');
+
+            // Trigger mailto client
+            window.location.href = mailtoUrl;
+
+            // Show notification toast
+            const toast = document.getElementById('orderToast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 5500);
+        }
+
+        function copyOrderSummaryToClipboard() {
+            const textarea = document.getElementById('generatedOrderText');
+            textarea.select();
+            textarea.setSelectionRange(0, 99999);
+            document.execCommand('copy');
+
+            const btnLabel = document.getElementById('copyBtnLabel');
+            btnLabel.textContent = 'Skopiowano do schowka!';
+            setTimeout(() => {
+                btnLabel.textContent = 'Kopiuj treść zamówienia';
+            }, 3000);
+        }
+
+        function finalizeAndClearCart() {
+            cart = [];
+            updateCartUI();
+            document.getElementById('emailCheckoutForm').reset();
+            document.getElementById('emailOrderFallbackBox').classList.add('hidden');
+            closeCheckoutModal();
+        }
+
+        // ==========================================
+        // 4. DISCOGRAPHY FILTERING
+        // ==========================================
+        function filterReleases(type, btnElement) {
+            const cards = document.querySelectorAll('.release-card');
+            const tabs = document.querySelectorAll('.disco-filter-btn');
+
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-purple-600', 'text-white');
+                tab.classList.add('text-gray-400');
+            });
+            btnElement.classList.add('bg-purple-600', 'text-white');
+            btnElement.classList.remove('text-gray-400');
+
+            cards.forEach(card => {
+                if (type === 'all' || card.classList.contains(type)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ==========================================
+        // 5. INTERACTIVE AUDIO PLAYER BAR
+        // ==========================================
+        const playlist = [
+            { title: 'WANNA FXCK (Album Snippet)', album: 'WANNA FXCK Pre-Order Preview', duration: '1:45' },
+            { title: 'Dzieciak 93', album: '93 (Album)', duration: '3:24' },
+            { title: 'Biała Flaga', album: 'APOCALYPSE', duration: '3:12' },
+            { title: 'Marionetka', album: 'MARIONETKA EP', duration: '2:45' },
+            { title: 'Ostatnie Pożegnanie', album: 'Ostatnie Pożegnanie EP', duration: '3:05' },
+            { title: 'Japońskie Samochody', album: 'Single Project', duration: '2:38' },
+            { title: 'Efemeryda', album: 'Single Project', duration: '3:15' },
+            { title: 'Na Krawędzi (Acoustic)', album: 'Single Acoustic', duration: '3:08' }
+        ];
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        let progressInterval = null;
+        let currentSeconds = 0;
+        let totalSeconds = 204;
+
+        const mainPlayIcon = document.getElementById('mainPlayIcon');
+        const visualizer = document.getElementById('visualizer');
+        const progressBar = document.getElementById('progressBar');
+        const currentTimeEl = document.getElementById('currentTime');
+
+        function playTrack(title, album, durationStr) {
+            document.getElementById('playerTrackTitle').textContent = title;
+            document.getElementById('playerTrackAlbum').textContent = album;
+            document.getElementById('totalTime').textContent = durationStr;
+            
+            const foundIdx = playlist.findIndex(t => t.title === title);
+            if (foundIdx !== -1) currentTrackIndex = foundIdx;
+
+            const parts = durationStr.split(':');
+            totalSeconds = parseInt(parts[0], 10) * 60 + parseInt(parts[1], 10);
+            currentSeconds = 0;
+            updateProgress();
+            
+            isPlaying = false;
+            togglePlay();
+        }
+
+        function togglePlay() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                mainPlayIcon.classList.remove('fa-play', 'ml-0.5');
+                mainPlayIcon.classList.add('fa-pause');
+                visualizer.classList.add('playing');
+                startTimer();
+            } else {
+                mainPlayIcon.classList.remove('fa-pause');
+                mainPlayIcon.classList.add('fa-play', 'ml-0.5');
+                visualizer.classList.remove('playing');
+                clearInterval(progressInterval);
+            }
+        }
+
+        function startTimer() {
+            clearInterval(progressInterval);
+            progressInterval = setInterval(() => {
+                if (currentSeconds < totalSeconds) {
+                    currentSeconds++;
+                    updateProgress();
+                } else {
+                    nextTrack();
+                }
+            }, 1000);
+        }
+
+        function updateProgress() {
+            const percent = totalSeconds > 0 ? (currentSeconds / totalSeconds) * 100 : 0;
+            progressBar.style.width = `${percent}%`;
+            
+            const mins = Math.floor(currentSeconds / 60);
+            const secs = currentSeconds % 60;
+            currentTimeEl.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function seek(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const clickPos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+            currentSeconds = Math.floor(clickPos * totalSeconds);
+            updateProgress();
+        }
+
+        function prevTrack() {
+            currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+            const prev = playlist[currentTrackIndex];
+            playTrack(prev.title, prev.album, prev.duration);
+        }
+
+        function nextTrack() {
+            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+            const next = playlist[currentTrackIndex];
+            playTrack(next.title, next.album, next.duration);
+        }
+
+        // ==========================================
+        // 6. ATMOSPHERE, COUNTDOWN, MENU & FORMS
+        // ==========================================
+        let atmosphereActive = true;
+        function toggleAudioAtmosphere() {
+            atmosphereActive = !atmosphereActive;
+            const dot = document.getElementById('audioPulseDot');
+            const text = document.getElementById('audioStatusText');
+            const blobs = document.getElementById('ambientBlobs');
+            if (atmosphereActive) {
+                dot.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-ping';
+                text.innerText = 'ATMOSPHERE: ON';
+                blobs.classList.remove('opacity-20');
+            } else {
+                dot.className = 'w-2 h-2 rounded-full bg-gray-500';
+                text.innerText = 'ATMOSPHERE: OFF';
+                blobs.classList.add('opacity-20');
+            }
+        }
+
+        function startCountdown() {
+            let days = 14, hours = 8, mins = 42, secs = 19;
+            setInterval(() => {
+                secs--;
+                if (secs < 0) {
+                    secs = 59;
+                    mins--;
+                    if (mins < 0) {
+                        mins = 59;
+                        hours--;
+                        if (hours < 0) {
+                            hours = 23;
+                            days = Math.max(0, days - 1);
+                        }
+                    }
+                }
+                document.getElementById('cd-days').innerText = days < 10 ? '0' + days : days;
+                document.getElementById('cd-hours').innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById('cd-mins').innerText = mins < 10 ? '0' + mins : mins;
+                document.getElementById('cd-secs').innerText = secs < 10 ? '0' + secs : secs;
+            }, 1000);
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // Forms Submission Handlers
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const successMsg = document.getElementById('formSuccess');
+            successMsg.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => successMsg.classList.add('hidden'), 5000);
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            const bookingSuccess = document.getElementById('bookingSuccess');
+            bookingSuccess.classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => bookingSuccess.classList.add('hidden'), 5000);
+        }
+
+        // Initialize on window load
+        window.onload = function() {
+            renderStoreProducts('all');
+            updateCartUI();
+            startCountdown();
+        };
+    </script>
+</body>
+</html>
